@@ -93,7 +93,7 @@ func (s *Storage) CreateTask(c *fiber.Ctx) error {
 	})
 }
 
-// GetTasks gets all the tasks from database and returns a json with this tasks
+// GetTasks gets all the tasks from database and returns a json with these tasks or error
 func (s *Storage) GetTasks(c *fiber.Ctx) error {
 	const errorLocation = "internal.app.storage.storage.GetTasks"
 	s.Logger.Debug("getting tasks")
@@ -128,6 +128,7 @@ func (s *Storage) GetTasks(c *fiber.Ctx) error {
 	})
 }
 
+// UpdateTask change some fields in the given by id task, and returns a json with this task or error
 func (s *Storage) UpdateTask(c *fiber.Ctx) error {
 
 	const errorLocation = "internal.app.storage.storage.UpdateTask"
@@ -235,6 +236,8 @@ func (s *Storage) UpdateTask(c *fiber.Ctx) error {
 	})
 
 }
+
+// DeleteTask deletes task from database by given id. Returns message of success or error
 func (s *Storage) DeleteTask(c *fiber.Ctx) error {
 
 	const errorLocation = "internal.app.storage.storage.DeleteTask"
@@ -298,6 +301,8 @@ func (s *Storage) DeleteTask(c *fiber.Ctx) error {
 	})
 }
 
+// GetTask is used to check if there is a task with given id in database and returns this Task or error
+// It can be refactored later to be connected to GET HTTP Method, that returns only one task by given id
 func (s *Storage) GetTask(id int) (Task, error) {
 	const errorLocation = "internal.app.storage.storage.GetTask"
 
