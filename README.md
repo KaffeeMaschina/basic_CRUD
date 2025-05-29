@@ -2,7 +2,7 @@
 This is my basic CRUD REST API written with Golang. As database is used PostgreSQL.
 
 To start the application you need:
-- to create .env file in the root of the project.
+- create .env file in the root of the project.
 example:
 ```
 BIND_ADDR=:8080
